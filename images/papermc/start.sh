@@ -43,15 +43,22 @@ fi
 PLUGINS="${DATA}/plugins"
 mkdir -p "${PLUGINS}"
 
-# get current versions here: https://geysermc.org/download?project=geyser
+# get current versions here: https://hangar.papermc.io/GeyserMC/Geyser
+#                            https://geysermc.org/download?project=geyser
 get_jar \
     https://download.geysermc.org/v2/projects/geyser/versions/2.9.0/builds/975/downloads/spigot \
     "${PLUGINS}/Geyser-Spigot.jar"
 
-# get current versions here: https://geysermc.org/download?project=floodgate
+# get current versions here: https://hangar.papermc.io/GeyserMC/Floodgate
+#                            https://geysermc.org/download?project=floodgate
 get_jar \
     https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/121/downloads/spigot \
     "${PLUGINS}/floodgate.jar"
+
+# get current versions here: https://hangar.papermc.io/Black1_TV/Passky
+get_jar \
+    https://hangarcdn.papermc.io/plugins/Black1_TV/Passky/versions/3.3.0/PAPER/Passky-3.3.0.jar \
+    "${PLUGINS}/Passky.jar"
 
 # get current versions here: https://hangar.papermc.io/firewolf8385/PlayerPasswords
 get_jar \
