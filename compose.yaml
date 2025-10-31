@@ -1,0 +1,11 @@
+services:
+  server:
+    build: "./images/papermc"
+    ports:
+      - "25565:25565/tcp"  # Java Edition
+      - "19132:19132/udp"  # Bedrock via Geyser
+    volumes:
+      - "/etc/localtime:/etc/localtime:ro"
+      - "/etc/timezone:/etc/timezone:ro"
+      - "./volumes/papermc/data:/papermc/data:rw"
+    restart: "always"
