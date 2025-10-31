@@ -1,18 +1,32 @@
 #!/usr/bin/env sh
 
 ###
+### functions
+###
+
+get_jar () {
+    URL=$1
+    FILE=$2
+
+    if [[ ! -f "${FILE}" ]]; then
+        curl -s -f "${URL}" -o "${FILE}" && \
+        echo "### ${FILE} download done."
+    else
+        echo "### ${FILE} already downloaded."
+    fi
+}
+
+###
 ### server
 ###
 
 DATA="/papermc/data"
+mkdir -p "${DATA}"
 
 # get current versions here: https://papermc.io/downloads/paper
-
-if [[ ! -f "${DATA}/papermc.jar" ]]; then
-    curl -s \
-    -f https://fill-data.papermc.io/v1/objects/f6d8d80d25a687cc52a02a1d04cb25f167bb3a8a828271a263be2f44ada912cc/paper-1.21.10-91.jar \
-    -o "${DATA}/papermc.jar"
-fi
+get_jar \
+    https://fill-data.papermc.io/v1/objects/f6d8d80d25a687cc52a02a1d04cb25f167bb3a8a828271a263be2f44ada912cc/paper-1.21.10-91.jar \
+    "${DATA}/papermc.jar"
 
 ###
 ### eula
@@ -30,28 +44,19 @@ PLUGINS="${DATA}/plugins"
 mkdir -p "${PLUGINS}"
 
 # get current versions here: https://geysermc.org/download?project=geyser
-
-if [[ ! -f "${PLUGINS}/Geyser-Spigot.jar" ]]; then
-    curl -s \
-    -f https://download.geysermc.org/v2/projects/geyser/versions/2.9.0/builds/975/downloads/spigot \
-    -o "${PLUGINS}/Geyser-Spigot.jar"
-fi
+get_jar \
+    https://download.geysermc.org/v2/projects/geyser/versions/2.9.0/builds/975/downloads/spigot \
+    "${PLUGINS}/Geyser-Spigot.jar"
 
 # get current versions here: https://geysermc.org/download?project=floodgate
-
-if [[ ! -f "${PLUGINS}/floodgate.jar" ]]; then
-    curl -s \
-    -f https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/121/downloads/spigot \
-    -o "${PLUGINS}/floodgate.jar"
-fi
+get_jar \
+    https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/121/downloads/spigot \
+    "${PLUGINS}/floodgate.jar"
 
 # get current versions here: https://hangar.papermc.io/firewolf8385/PlayerPasswords
-
-if [[ ! -f "${PLUGINS}/PlayerPasswords.jar" ]]; then
-    curl -s \
-    -f https://hangarcdn.papermc.io/plugins/firewolf8385/PlayerPasswords/versions/2.0/PAPER/PlayerPasswords%20v2.0.jar \
-    -o "${PLUGINS}/PlayerPasswords.jar"
-fi
+get_jar \
+    https://hangarcdn.papermc.io/plugins/firewolf8385/PlayerPasswords/versions/2.0/PAPER/PlayerPasswords%20v2.0.jar \
+    "${PLUGINS}/PlayerPasswords.jar"
 
 ###
 ### start server
