@@ -31,7 +31,7 @@ mkdir -p "${PLUGINS}"
 
 # get current versions here: https://geysermc.org/download?project=geyser
 
-if [[ ! -f "${PLUGINS}/floGeyser-Spigot.jar" ]]; then
+if [[ ! -f "${PLUGINS}/Geyser-Spigot.jar" ]]; then
     curl -s \
     -f https://download.geysermc.org/v2/projects/geyser/versions/2.9.0/builds/975/downloads/spigot \
     -o "${PLUGINS}/Geyser-Spigot.jar"
@@ -39,10 +39,18 @@ fi
 
 # get current versions here: https://geysermc.org/download?project=floodgate
 
-if [[ ! -f "${DATA}/plugins/floodgate.jar" ]]; then
+if [[ ! -f "${PLUGINS}/floodgate.jar" ]]; then
     curl -s \
     -f https://download.geysermc.org/v2/projects/floodgate/versions/2.2.5/builds/121/downloads/spigot \
     -o "${PLUGINS}/floodgate.jar"
+fi
+
+# get current versions here: https://hangar.papermc.io/firewolf8385/PlayerPasswords
+
+if [[ ! -f "${PLUGINS}/PlayerPasswords.jar" ]]; then
+    curl -s \
+    -f https://hangarcdn.papermc.io/plugins/firewolf8385/PlayerPasswords/versions/2.0/PAPER/PlayerPasswords%20v2.0.jar \
+    -o "${PLUGINS}/PlayerPasswords.jar"
 fi
 
 ###
