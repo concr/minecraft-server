@@ -60,11 +60,6 @@ get_jar \
     https://hangarcdn.papermc.io/plugins/Black1_TV/Passky/versions/3.3.0/PAPER/Passky-3.3.0.jar \
     "${PLUGINS}/Passky.jar"
 
-# get current versions here: https://hangar.papermc.io/firewolf8385/PlayerPasswords
-get_jar \
-    https://hangarcdn.papermc.io/plugins/firewolf8385/PlayerPasswords/versions/2.0/PAPER/PlayerPasswords%20v2.0.jar \
-    "${PLUGINS}/PlayerPasswords.jar"
-
 ###
 ### start server
 ###

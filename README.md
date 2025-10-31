@@ -1,10 +1,9 @@
 # minecraft-server
 
-Minecraft server made with PaperMC
+PaperMC Minecraft Server
 
 ## extensions
 
 * GeyserMC
 * Floodgate
 * Passky
-* PlayerPasswords
