@@ -32,8 +32,11 @@ get_jar \
 ### eula
 ###
 
-if [[ ! -f "eula.txt" ]]; then
-    echo "eula=true" > "${DATA}/eula.txt"
+if ! grep -qF 'eula=true' "${DATA}/eula.txt" 2> /dev/null; then
+  printf '%s\n' 'eula=true' > "${DATA}/eula.txt" && \
+  echo "### ${DATA}/eula.txt created."
+else
+  echo "### ${DATA}/eula.txt already there."
 fi
 
 ###
